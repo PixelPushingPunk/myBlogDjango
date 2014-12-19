@@ -1,0 +1,23 @@
+{% extends 'blogs/base.html' %}
+	
+	{% load staticfiles %}
+
+	{% block content %}	
+		
+		<h1>Blog Entries</h1>
+
+		<div class="row">
+			{% for blog in blogs %}
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">
+						<img src="/media/{{ blog.image }}"/>
+						<div class="caption">
+							<h3> {{ blog.title }} </h3>
+							<p> {{ blog.body }} </p>
+							</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+	{% endblock content %}
