@@ -1,0 +1,7 @@
+*.swp
+.DS_Store
+*.pyc
+*.pyo
+pip-log.txt
+.sass-cache
+dump.rdb
