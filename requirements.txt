@@ -1,2 +1,5 @@
 Django==1.7.1
+Pillow==2.6.1
+django-ckeditor-updated==4.4.4
+easy-thumbnails==2.2
 wsgiref==0.1.2
