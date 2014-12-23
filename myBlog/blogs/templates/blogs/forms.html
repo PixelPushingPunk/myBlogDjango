@@ -1,0 +1,35 @@
+{% extends 'blogs/base.html' %}
+
+	{% load staticfiles %}
+
+	{% block content %}
+
+		<h1>Forms</h1>
+
+		<div class="row">
+
+			<form action="/your-name/" action="post">
+
+				<div class="input-group">
+
+					{{ form.firstname }}
+
+				</div>
+				
+				<div class="input-group">
+
+					{{ form.surname }}
+
+				</div>
+
+				<div class="input-group">
+					
+					<button class="btn btn-default" type="submit">Subit</button>
+
+				</div>
+
+			</form>
+
+		</div>
+
+	{% endblock content %}

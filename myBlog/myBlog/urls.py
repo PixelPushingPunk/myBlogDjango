@@ -10,6 +10,13 @@ urlpatterns = patterns('',
     # Homepage
     url(r'^$', 'blogs.views.home', name='home'),
 
+    # Forms
+    url(r'^forms/', 'blogs.views.home_forms', name='home forms'),
+
+
+    # Not pages
+    # --------------------------------------------------------------------------------------------------
+
     # Ckeditor
     url(r'^ckeditor/', include('ckeditor.urls')),
 
