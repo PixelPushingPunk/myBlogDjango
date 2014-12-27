@@ -1,19 +1,38 @@
 from django.shortcuts import render
 from blogs.models import BlogPost
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound, Http404 
 from forms import NameForm
 
 # Create your views here.
-def home(request):
-	print 'welcome to my blog'
+def home(request, id=None):
+	if not id: 
+		print 'welcome to my blog homepage'
 
-	blogs = BlogPost.objects.filter(is_published=True)
+		blogs = BlogPost.objects.filter(is_published=True)
 
-	context = {
-		'blogs' : blogs
-	}
+		context = {
+			'blogs' : blogs
+		}
 
-	return render(request, 'blogs/index.html', context)
+		return render(request, 'blogs/index.html', context)
+	else:
+		print 'welcome to my blog single'
+
+		try:
+
+			blogs = BlogPost.objects.filter(pk=id)
+
+			context = {
+				'blogs' : blogs
+			}
+
+		except BlogPost.DoesNotExist:
+
+			raise Http404
+
+		return render(request, 'blogs/single.html', context)
+
+
 
 
 def home_forms(request):
