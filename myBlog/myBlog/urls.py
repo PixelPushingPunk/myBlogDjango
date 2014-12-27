@@ -9,6 +9,7 @@ urlpatterns = patterns('',
 
     # Homepage
     url(r'^$', 'blogs.views.home', name='home'),
+    url(r'^blog/(?P<id>[\d]+)/$', 'blogs.views.home', name='blog single'),
 
     # Forms
     url(r'^forms/', 'blogs.views.home_forms', name='home forms'),

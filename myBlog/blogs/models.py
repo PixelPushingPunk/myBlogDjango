@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class BlogPost(models.Model):
@@ -14,3 +15,6 @@ class BlogPost(models.Model):
 
 	def __unicode(self):
 		return self.title
+
+	def get_absolute_url(self):
+		return reverse('blogs.views.home', args=[str(self.id)])

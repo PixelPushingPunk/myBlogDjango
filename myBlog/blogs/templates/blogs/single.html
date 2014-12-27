@@ -1,0 +1,38 @@
+{% extends 'blogs/base.html' %}
+	
+	{% load staticfiles %}
+
+	{% block content %}	
+
+		<div class="row">
+			<div class="col-md-12">
+				<a href="/" class="back-btn fa fa-angle-left"></a>
+			</div>
+		</div>
+
+		{% if user.is_authenticated %}
+
+			<div class="row">
+				{% for blog in blogs %}
+					<div class="col-sm-12 col-md-4">
+						<img style="width:100%;" src="/media/{{ blog.image }}"/>
+					</div>
+					<div class="col-sm-12 col-md-8">
+						<h3> {{ blog.title }} </h3>
+						<p> {{ blog.body }} </p>
+					</div>
+
+				{% endfor %}
+			</div>
+
+		{% else %}
+
+			<div class="row">
+				<div class="col-md-12">
+					<h1> Welcome, new user please <a href="/accounts/login/">login</a> </h1> 
+				<div>
+			</div>
+
+		{% endif %}
+
+	{% endblock content %}
