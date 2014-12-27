@@ -4,29 +4,36 @@
 
 	{% block content %}	
 		
-		<h1>Blog Entries</h1>
+		{% if user.is_authenticated %}
 
-		<div class="row">
-
-			{% if user.is_authenticated %}
-				<p> Welcome, {{ user.get_username }}. Thanks for loggin in </p>
-			{% else %}
-				<p> Welcome, new user please login </p> 
-			{% endif %}
-		</div>
-
-		<div class="row">
-			{% for blog in blogs %}
-				<div class="col-sm-6 col-md-4">
-					<div class="thumbnail">
-						<img src="/media/{{ blog.image }}"/>
-						<div class="caption">
-							<h3> {{ blog.title }} </h3>
-							<p> {{ blog.body }} </p>
-							</div>
-					</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h1> Welcome, {{ user.get_username }}. Thanks for loggin in </h1>
 				</div>
-			{% endfor %}
-		</div>
+			</div>
+
+			<div class="row">
+				{% for blog in blogs %}
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="/media/{{ blog.image }}"/>
+							<div class="caption">
+								<h3> {{ blog.title }} </h3>
+								<p> {{ blog.body }} </p>
+								</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+		{% else %}
+
+			<div class="row">
+				<div class="col-md-12">
+					<h1> Welcome, new user please <a href="/accounts/login/" class="pull-right">login</a> </h1> 
+				<div>
+			</div>
+
+		{% endif %}
 
 	{% endblock content %}

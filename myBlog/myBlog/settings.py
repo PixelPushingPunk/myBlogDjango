@@ -117,6 +117,9 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+# Prevents the need of an SMTP
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
